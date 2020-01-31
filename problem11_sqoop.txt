@@ -1,0 +1,20 @@
+mysql –u root –p
+Password$:123
+
+2.create database h1b;
+
+3.use h1b;
+
+4.create table problem101 (job_title varchar(200) NOT NULL,applications bigint NOT NULL) ;
+
+5. mysql> describe problem101;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| job_title    | varchar(200) | NO   |     | NULL    |       |
+| applications | bigint(20)   | NO   |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+
+
+6. sqoop export --connect jdbc:mysql://localhost/h1b --username root --password 123 --table problem101 --export-dir /h1b_project/outputQ10/p* --input-fields-terminated-by ',' --mysql-delimiters -m 1;
+
